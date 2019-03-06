@@ -17,16 +17,13 @@ passeBas() {
 		pmult damier-re.pan $i.pan damier-$i-re.pan
 		pmult damier-im.pan $i.pan damier-$i-im.pan
 		pifft $i-re.pan $i-im.pan $i-re.pan $i-im.pan		
-#		pfftshift damier-$i-re.pan damier-$i-im.pan damier-$i-re.pan damier-$i-im.pan
 		pmodulus damier-$i-re.pan damier-$i-im.pan damier-$i-rec.pan 
 		plog damier-$i-rec.pan damier-$i-passe-bas.pan
 	done	
 }
 
 getFFT
-#set -x
 passeBas
-#set +x
 
 for i in *.pan; do
     [ -f "$i" ] || break
