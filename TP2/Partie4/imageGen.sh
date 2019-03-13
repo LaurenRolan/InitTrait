@@ -13,11 +13,6 @@ pmodulus convolute-re.pan convolute-im.pan final.pan
 paddnoise 1 10 10 lena.pan bruite.pan
 pmeanfiltering 1 bruite.pan convolute-lena.pan
 
-psetcst 0 convolute-lena.pan convolute-i-lena.pan
-pfft convolute-lena.pan convolute-i-lena.pan convolute-re-lena.pan convolute-im-lena.pan
-pfftshift convolute-re-lena.pan convolute-im-lena.pan convolute-re-lena.pan convolute-im-lena.pan
-pmodulus convolute-re-lena.pan convolute-im-lena.pan final-lena.pan
-
 
 for i in *.pan; do
     [ -f "$i" ] || break
