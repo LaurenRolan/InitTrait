@@ -46,6 +46,7 @@ pdiv res-im.pan mod.pan res-im.pan
 echo "Division ended"
 
 pifft res-re.pan res-im.pan res-re.pan res-im.pan
+pfftshift res-re.pan res-im.pan res-re.pan res-im.pan
 pmodulus res-re.pan res-im.pan res.pan
 pbinarization  0.14 0.16 res.pan res.pan
 

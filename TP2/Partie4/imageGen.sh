@@ -2,6 +2,13 @@
 # Partie Dirac
 pshapedesign 256 256 0 0 0 0 empty.pan
 psetpixel 128 128 0 255 empty.pan dirac.pan
+
+psetcst 0 dirac.pan dirac-i.pan
+pfft dirac.pan dirac-i.pan dirac-re.pan dirac-im.pan
+pfftshift dirac-re.pan dirac-im.pan dirac-re.pan dirac-im.pan
+pmodulus dirac-re.pan dirac-im.pan dirac-fft.pan
+plog dirac-fft.pan dirac-fft.pan
+
 pmeanfiltering 1 dirac.pan convolute.pan
 
 psetcst 0 convolute.pan convolute-i.pan

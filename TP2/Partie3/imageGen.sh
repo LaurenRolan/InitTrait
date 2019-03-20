@@ -49,10 +49,26 @@ removeImages() {
 	done	
 }
 
+getHistograms() {
+	for i in carre cercle
+	do
+		pnormalization 0 255 damier-$i-passe-bas.pan | pim2uc - - | 	phistogram - damier-$i-passe-bas-histo.pan
+		pplot1d 512 256 1 0 0 damier-$i-passe-bas-histo.pan damier-$i-passe-bas-histo-img.pan
+		pnormalization 0 255 damier-$i-passe-bas-histo-img.pan | pim2uc - -  |ppan2png - $i-passe-bas-histo.pan
+
+		pnormalization 0 255 damier-$i-passe-haut.pan | pim2uc - - | 	phistogram - damier-$i-passe-haut-histo.pan
+		pplot1d 512 256 1 0 0 damier-$i-passe-haut-histo.pan damier-$i-passe-haut-histo-img.pan
+		pnormalization 0 255 damier-$i-passe-haut-histo-img.pan | pim2uc - -  |ppan2png - $i-passe-haut-histo.pan
+	done
+}
+
+
+
 
 getFFT
 passeBas
 passeHaut
+getHistograms
 removeImages
 
 for i in *.pan; do
